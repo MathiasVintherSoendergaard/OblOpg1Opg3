@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>String manipulation</h1>
+    <div id="app">
+        <form>
+            <input placeholder="Skriv et ord i boksen" type="text" v-model="typedWord">
+            <button id="saveButton" type="button" @click="save(typedWord)">Save</button>
+            <div>Du har skrevet: {{typedWordSaved}}</div>
+            <ul v-if="words.length > 0">
+                <li v-for="word in words">
+                    {{word}}
+                </li>
+            </ul>
+        </form>
+        <table class="table" width="100%">
+            <tbody>
+              <tr class="active" v-for="word in words">
+                <td> {{ word }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
