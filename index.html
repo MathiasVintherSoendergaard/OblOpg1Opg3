@@ -14,7 +14,7 @@
         <form>
             <input placeholder="Skriv et ord i boksen" type="text" v-model="typedWord">
             <button id="saveButton" type="button" @click="save(typedWord)">Save</button>
-            <div>Du har skrevet: {{typedWordSaved}}</div>
+            <div>Du har skrevet: {{typedWord}}</div>
             <ul v-if="words.length > 0">
                 <li v-for="word in words">
                     {{word}}

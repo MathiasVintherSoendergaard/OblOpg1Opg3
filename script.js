@@ -1,7 +1,7 @@
 const app = Vue.createApp({
     data(){
         return{
-            typedWordSaved: "",
+            typedWord: "",
             tempWord: "",
             tempWord2: "",
             characters: [],
@@ -11,7 +11,7 @@ const app = Vue.createApp({
     methods:{
         save(word){
             this.words = []
-            this.typedWordSaved = word
+            this.typedWord = word
             // ordet som skrevet
             this.words.push(word)
             // ordet med store bogstaver
@@ -21,14 +21,14 @@ const app = Vue.createApp({
             // ordet med stort begyndelsesbogstav
             // første linje klipper det første tegn ud og gemmer det i tempWord
             // anden linje sætter tempWord og en de restende karakterer fra det indtastede ord sammen vha. .substring
-            this.tempWord = this.typedWordSaved.slice(0,1)
+            this.tempWord = this.typedWord.slice(0,1)
             this.words.push(this.tempWord.toUpperCase()+word.substring(1).toLowerCase())
             // ordet med stort afslutningsbogstav
             // første linje deler det indtastede ord op i enkelte tegn og lægger tegnene ind i et array
             // anden linje gør det sidste bogstav stort
             // tredje linje samler arrayet til en string, som lægges i listen
-            this.tempWord = this.typedWordSaved.slice(0,-1)
-            this.words.push(this.tempWord.toLowerCase()+this.typedWordSaved.slice(-1).toUpperCase())
+            this.tempWord = this.typedWord.slice(0,-1)
+            this.words.push(this.tempWord.toLowerCase()+this.typedWord.slice(-1).toUpperCase())
             //word.toUpperCase(this.characters[(this.characters.length-1)])
             //this.words.push(this.characters.join(""))
             // ordet baglæns
